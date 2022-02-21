@@ -112,11 +112,14 @@ public class GameConsole extends AppCompatActivity {
             Button button = (Button) findViewById(id);
             open_spots.add(button);
         }
+        Toast player = Toast.makeText(context, name+ " turn",Toast.LENGTH_SHORT);
+        player.show();
 
 
         /**
          * resets the game
          */
+        //reset.setEnabled(false);
         reset = findViewById(R.id.floatingActionButton);
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -177,6 +180,8 @@ public class GameConsole extends AppCompatActivity {
         open_spots.remove(b);
         checkWinnerTwo = fourInARow.checkForWinner();
         updatePlayer();
+        Toast play = Toast.makeText(context, name+ " turn",Toast.LENGTH_SHORT);
+        play.show();
     }
 
     /**
@@ -195,6 +200,8 @@ public class GameConsole extends AppCompatActivity {
         updatePlayer();
         if(checkWinnerOne == IGame.PLAYING){
             computerMove();
+            Toast t = Toast.makeText(context,"Computer move",Toast.LENGTH_SHORT);
+            t.show();
         }
     }
 
@@ -239,16 +246,19 @@ public class GameConsole extends AppCompatActivity {
             Toast t2 = Toast.makeText(context,"Computer Won",Toast.LENGTH_SHORT);
             t2.show();
             disableButtons();
+            //reset.setEnabled(true);
         }else if(checkWinnerOne == IGame.BLUE){
             currentState = IGame.BLUE_WON;
             Toast t3 = Toast.makeText(context,name + "Won",Toast.LENGTH_SHORT);
             t3.show();
             disableButtons();
+            //reset.setEnabled(true);
         }else if(checkWinnerOne == IGame.RED && checkWinnerTwo == IGame.BLUE){
             currentState = IGame.TIE;
             Toast t4 = Toast.makeText(context,"Tie",Toast.LENGTH_SHORT);
             t4.show();
             disableButtons();
+            //reset.setEnabled(true);
         }else{
             currentState = IGame.PLAYING;
         }
