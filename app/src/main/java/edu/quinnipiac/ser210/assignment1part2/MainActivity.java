@@ -1,3 +1,10 @@
+/**
+ * Made By: Emily Balboni
+ * Professor Ruby
+ * SER 210 Assignment 1 Part 2
+ * 2/20/22
+ * MainActivity class, has information to switch to instructions and game
+ */
 package edu.quinnipiac.ser210.assignment1part2;
 
 import androidx.appcompat.app.AppCompatActivity;
